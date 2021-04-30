@@ -1,5 +1,14 @@
 console.log("Shopping List Task");
 
+function capitalise(word) {
+  let lowerCaseWord = word.toLowerCase();
+  let upperCaseLetter = lowerCaseWord[0];
+  lowerCaseWord = lowerCaseWord.substring(1);
+  upperCaseLetter = upperCaseLetter.toUpperCase();
+  let capitaliseWord = upperCaseLetter + lowerCaseWord;
+
+  return capitaliseWord;
+}
 
 // ### Stage 1
 
@@ -25,19 +34,11 @@ console.log("Shopping List Task");
 
 // Each list item should be something like this:
 
-// <!-- E.G. 1 -->
-// <li class="in-basket">Item Name</li>
-// <!-- E.G. 2 -->
-// <li>Other Item Name</li>
-// NOTE: the class of in-basket would only be applied when the boolean value of isInBasket is true for the item.
-// That way we can use CSS that applies only to completed items to make them appear different.
-
 // Plan
 // Outcome - Create unordered list on page with all the shopping items on
 // Create UL in HTML
 // Add items to UL as List Items
 // Add class of inbasket to items in basket
-
 
 const shoppingList = [
   { item: "Rice", isInBasket: false },
@@ -55,30 +56,97 @@ const shoppingList = [
 
 // How to write this using array methods
 
+// Plan
+// Outcome - Create unordered list on page with all the shopping items on
+// Create UL in HTML
+// Go through the Shopping List
+// Create li element
+// Make individual elements using index
+// Add li items to UL
+// Add class of inbasket to items in basket if isInbasket is true
+
 function addAllShoppingtoUL(wordstomakeLi) {
   for (i = 0; i < wordstomakeLi.length; i++) {
-        const li = document.createElement("LI");
-        const listItem = document.createTextNode(wordstomakeLi[i].item);
-        li.appendChild(listItem);
-        document.getElementById("shoppingBasket").appendChild(li);
-            if (wordstomakeLi[i].isInBasket === true){
-                li.classList.add("in-basket");
-            }
-      }
-      }
- 
-      
+    const li = document.createElement("li");
+    li.innerText = wordstomakeLi[i].item;
+    if (wordstomakeLi[i].isInBasket === true) {
+      li.classList.add("in-basket");
+    }
+    document.getElementById("shoppingBasket").appendChild(li);
+  }
+}
+
 addAllShoppingtoUL(shoppingList);
 
+// ### Stage 3
 
+// We are now at the stage where we have an array of items and an unordered list displayed on the page.
+//Lets add the functionality to add items to the list. We will first do this using prompt and then
+// refactor to use an HTML text input.
 
-//This takes in the array and looks at the in basket property
-// If it is true it returns the items that are in basket
+// 1. Create a function that asks the user to input an item using a prompt.
 
-// function filterShoppingInBasket(shoppingObject) {
-//       if (shoppingObject.isInBasket === true){
-//       return shoppingObject.item
-//     }
-//    }
+// 2. Create a button on the page that calls your function.
 
-// const shoppingInBasket = shoppingList.filter(filterShoppingInBasket)
+// document
+//   .getElementById("add-item-button")
+//   .addEventListener("click", promptAddItem);
+
+// 3. Add the item to the array by creating an object with two keys: item (the string you have got from the user prompt)
+// and isInBasket (which defaults to false). If you have used different key names in your array of objects then use those.
+// Take input stored in userAnswer, give key of item and is In Basket
+// ** How to use capatalise in the prompt Answer Function
+
+// 4. Display the item on the page by using your function from stage 2 to display your item on the page
+
+// function promptAddItem() {
+//   let userAnswer = prompt("What would you like to add to the shopping list?");
+//   userAnswer = capitalise(userAnswer);
+//   const userAnswerObject = { item: userAnswer, isInBasket: false };
+//   addAllShoppingtoUL([userAnswerObject]);
+// }
+
+// **Refactor to use HTML input**
+
+document
+  .getElementById("add-item-button")
+  .addEventListener("click", promptAddItem);
+
+function promptAddItem(userInput) {
+  let userAnswer = (userInput.innerText = document.getElementById(
+    "change-text"
+  ).value);
+  userAnswer = capitalise(userAnswer);
+  const userAnswerObject = { item: userAnswer, isInBasket: false };
+  addAllShoppingtoUL([userAnswerObject]);
+  console.log(userAnswerObject);
+}
+
+// ### Stage 4
+
+// The following steps you should breakdown yourself. Remember to keep breaking down and to write yourself a plan.
+
+// Add a button to clear the list.
+//Plan
+//Add button to html with id to identify it  x
+//Add event listener to button so when clicked it triggers a function
+//Add function that removes the Lis from the UL
+
+document
+  .getElementById("clear-all-items")
+  .addEventListener("click", clearItemsFromList);
+
+function clearItemsFromList(event) {
+  const shoppingList = document.getElementById("shoppingBasket");
+  // As long as <ul> has a child node, remove it
+  while (shoppingList.hasChildNodes()) {
+    shoppingList.removeChild(shoppingList.firstChild);
+  }
+}
+
+// 👉 Add a button on each item to toggle whether it is in the basket.
+// Create a checkbox that appears when li load
+// If the box is tick change key to true
+// If the box is unticked change key to false
+
+// value	Sets or returns the value of the value attribute of a checkbox
