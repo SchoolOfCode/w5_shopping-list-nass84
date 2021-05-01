@@ -65,19 +65,6 @@ const shoppingList = [
 // Add li items to UL
 // Add class of inbasket to items in basket if isInbasket is true
 
-function addAllShoppingtoUL(wordstomakeLi) {
-  for (i = 0; i < wordstomakeLi.length; i++) {
-    const li = document.createElement("li");
-    li.innerText = wordstomakeLi[i].item;
-    if (wordstomakeLi[i].isInBasket === true) {
-      li.classList.add("in-basket");
-    }
-    document.getElementById("shoppingBasket").appendChild(li);
-  }
-}
-
-addAllShoppingtoUL(shoppingList);
-
 // ### Stage 3
 
 // We are now at the stage where we have an array of items and an unordered list displayed on the page.
@@ -145,8 +132,47 @@ function clearItemsFromList(event) {
 }
 
 // 👉 Add a button on each item to toggle whether it is in the basket.
-// Create a checkbox that appears when li load
+// PLAN
+// Add checkbox that appears when li load
 // If the box is tick change key to true
 // If the box is unticked change key to false
 
 // value	Sets or returns the value of the value attribute of a checkbox
+
+// function to use when button is clicked
+function toggleBasket(event) {
+  // Can't use id as they dont have an individual id would need to use something like data attribute https://www.w3schools.com/tags/att_data-.asp
+  // This chains one thing onto the other, so when event is clicked it looks for the button thats attached to the li
+  // target refers to the html element that was clicked aka the button
+  // the parent element gives us the li as button is inside it;
+  const button = event.target;
+  const li = button.parentElement;
+  li.classList.toggle("in-basket");
+  if (li.classList.contains("in-basket")) {
+    button.textContent = "Remove from basket";
+  } else {
+    button.textContent = "Add to basket";
+  }
+}
+
+function addAllShoppingtoUL(wordstomakeLi) {
+  // check how many times to run the code
+  for (i = 0; i < wordstomakeLi.length; i++) {
+    // create li element
+    const li = document.createElement("li");
+    // add the item name to the li inner text
+    li.innerText = wordstomakeLi[i].item;
+    // create a button element
+    let button = document.createElement("button");
+    // Set button text
+    button.textContent = "Add to basket";
+    // Adds events listener to button
+    button.addEventListener("click", toggleBasket);
+    // add button to li
+    li.appendChild(button);
+    // add li to the UL id shopping basket
+    document.getElementById("shoppingBasket").appendChild(li);
+  }
+}
+
+addAllShoppingtoUL(shoppingList);
