@@ -8,29 +8,38 @@
     <title>My Shopping List</title>
   </head>
   <body>
-    <h1 class="in-basket">Beckis Shopping List</h1>
+    <div id="main-page">
+      <div id="heading">
+        <h1 class="in-basket">Shopping List</h1>
+      </div>
+      <div id="input">
 
-    <div class="center" id="name-input">
-      <strong id="shopping-list-text">Add to shopping list</strong>
-      <input type="text" id="change-text" value="" maxlength="" />
-      <button class="button" id="add-item-button">Add to list</button>
-   
-      <button class="button" id="clear-all-items">Clear list</button>
+        <div class="center" id="name-input">
+          <strong id="shopping-list-text">Add to shopping list</strong>
+          <input type="text" id="change-text" value="" maxlength="" />
+          <button class="button" id="add-item-button">Add to list</button>
+          
+        </div>
 
-      <button class="button" id="hide-basket-items">Show only items left to buy</button>
+        <div id="bought-items">   
+          <h2>Items to be bought</h2> 
+          <ul class="list" id="shoppingList">
+          </ul>
+       
+         </div> 
 
-      <button class="button" id="show-all-items">Show All</button>
+         <div id="basketList">  
+          <h2>Items in basket</h2> 
 
-    </div> 
+          <ul class="list" id="basket">
+          </ul>
+        
+          </div>
 
-    <ul class="list" id="shoppingBasket" input type="checkbox">
-      Shopping List
-    </ul>
-
-    <!--Can add a seperate list later <ul class="list" id="basket" input type="checkbox">
-      Basket
-    </ul> -->
-
+          <button class="button center" id="clear-all-items">Reset List</button>
+        
+       
+  </div>
     <script src="main.js"></script>
   </body>
 </html>
