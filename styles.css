@@ -1,7 +1,7 @@
 .in-basket {
     color: red;
-    font-size: 25px;
-    background-color: purple;
+    text-decoration: underline;
+   
   }
 
   .hide {

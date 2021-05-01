@@ -1,4 +1,3 @@
-console.log("Shopping List Task");
 
 function capitalise(word) {
   let lowerCaseWord = word.toLowerCase();
@@ -106,7 +105,7 @@ function promptAddItem(userInput) {
   userAnswer = capitalise(userAnswer);
   const userAnswerObject = { item: userAnswer, isInBasket: false };
   addAllShoppingtoUL([userAnswerObject]);
-  console.log(userAnswerObject);
+    
 }
 
 // ### Stage 4
@@ -162,6 +161,10 @@ function addAllShoppingtoUL(wordsToMakeLi) {
     const li = document.createElement("li");
     // add the item name to the li inner text
     li.innerText = wordsToMakeLi[i].item;
+     // add class to li 
+    li.classList.add("li-item");
+    // sort alphabetically 
+  
     // create a button element
     let button = document.createElement("button");
     // Set button text
@@ -177,6 +180,7 @@ function addAllShoppingtoUL(wordsToMakeLi) {
 
 addAllShoppingtoUL(shoppingList);
 
+
 // ### Optional Further JS Challenges
 
 // 👉 Add a button that clears only the completed items.
@@ -191,14 +195,10 @@ document
   .addEventListener("click", hideBasketItems);
 
 function hideBasketItems(event) {
-  //check button is working
-  console.log("working");
   // get items that need to be cleared
   const itemsInBasket = document.getElementsByClassName("in-basket");
-  console.log(itemsInBasket);
   // change into Array
   const arrayBasketItems = Array.from(itemsInBasket);
-  console.log(arrayBasketItems);
   // hide those items from list
   arrayBasketItems.map((element) => element.classList.add("hide"));
   // show those items in list
@@ -209,17 +209,18 @@ document
   .addEventListener("click", showAllItems);
 
 function showAllItems(event) {
-  //check button is working
-  console.log("working");
-  // get items that need to be cleared
+   // get items that need to be cleared
   const itemsInBasket = document.getElementsByClassName("in-basket");
-  console.log(itemsInBasket);
   // change into Array
   const arrayBasketItems = Array.from(itemsInBasket);
-  console.log(arrayBasketItems);
-  // hide those items from list
+   // hide those items from list
   arrayBasketItems.map((element) => element.classList.remove("hide"));
 }
 
 
 // 👉 Sort the list alphabetically.
+
+// Plan 
+// As item is added to the list sort whole list alphabetically 
+// Attach sort to the add item 
+
