@@ -3,3 +3,11 @@
     font-size: 25px;
     background-color: purple;
   }
+
+  .hide {
+      display: none;
+  }
+
+  .show {
+      display: block;
+  }

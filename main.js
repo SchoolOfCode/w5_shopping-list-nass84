@@ -155,18 +155,18 @@ function toggleBasket(event) {
   }
 }
 
-function addAllShoppingtoUL(wordstomakeLi) {
+function addAllShoppingtoUL(wordsToMakeLi) {
   // check how many times to run the code
-  for (i = 0; i < wordstomakeLi.length; i++) {
+  for (i = 0; i < wordsToMakeLi.length; i++) {
     // create li element
     const li = document.createElement("li");
     // add the item name to the li inner text
-    li.innerText = wordstomakeLi[i].item;
+    li.innerText = wordsToMakeLi[i].item;
     // create a button element
     let button = document.createElement("button");
     // Set button text
     button.textContent = "Add to basket";
-    // Adds events listener to button
+    // Adds events listener to button to add in basket
     button.addEventListener("click", toggleBasket);
     // add button to li
     li.appendChild(button);
@@ -176,3 +176,35 @@ function addAllShoppingtoUL(wordstomakeLi) {
 }
 
 addAllShoppingtoUL(shoppingList);
+
+// ### Optional Further JS Challenges
+
+// 👉 Add a button that clears only the completed items.
+
+// Add button
+// If button is clicked clear items
+
+document
+// Attached to hide basket item button
+  .getElementById("hide-basket-items")
+  // if click on button do the function
+  .addEventListener("click", hideBasketItems);
+
+function hideBasketItems(event) {
+  //check button is working
+        console.log("working")
+  // get items that need to be cleared
+        const itemsInBasket = document.getElementsByClassName("in-basket");
+        console.log(itemsInBasket)
+  // change into Array 
+        const arrayBasketItems = Array.from(itemsInBasket)
+        console.log(arrayBasketItems)
+  // hide those items from list 
+        arrayBasketItems.map(element => element.classList.add("hide"))
+  // show those items in list
+      
+      }
+
+
+
+// 👉 Sort the list alphabetically.
