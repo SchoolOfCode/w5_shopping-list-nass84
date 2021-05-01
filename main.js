@@ -185,26 +185,41 @@ addAllShoppingtoUL(shoppingList);
 // If button is clicked clear items
 
 document
-// Attached to hide basket item button
+  // Attached to hide basket item button
   .getElementById("hide-basket-items")
   // if click on button do the function
   .addEventListener("click", hideBasketItems);
 
 function hideBasketItems(event) {
   //check button is working
-        console.log("working")
+  console.log("working");
   // get items that need to be cleared
-        const itemsInBasket = document.getElementsByClassName("in-basket");
-        console.log(itemsInBasket)
-  // change into Array 
-        const arrayBasketItems = Array.from(itemsInBasket)
-        console.log(arrayBasketItems)
-  // hide those items from list 
-        arrayBasketItems.map(element => element.classList.add("hide"))
+  const itemsInBasket = document.getElementsByClassName("in-basket");
+  console.log(itemsInBasket);
+  // change into Array
+  const arrayBasketItems = Array.from(itemsInBasket);
+  console.log(arrayBasketItems);
+  // hide those items from list
+  arrayBasketItems.map((element) => element.classList.add("hide"));
   // show those items in list
-      
-      }
+}
 
+document
+  .getElementById("show-all-items")
+  .addEventListener("click", showAllItems);
+
+function showAllItems(event) {
+  //check button is working
+  console.log("working");
+  // get items that need to be cleared
+  const itemsInBasket = document.getElementsByClassName("in-basket");
+  console.log(itemsInBasket);
+  // change into Array
+  const arrayBasketItems = Array.from(itemsInBasket);
+  console.log(arrayBasketItems);
+  // hide those items from list
+  arrayBasketItems.map((element) => element.classList.remove("hide"));
+}
 
 
 // 👉 Sort the list alphabetically.
