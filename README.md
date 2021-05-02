@@ -118,3 +118,22 @@ The following steps you should breakdown yourself. Remember to keep breaking dow
 ### Designing For Users
 
 Now that we have a working list and are more comfortable with the logic that makes it work, it's time to take our proof of concept and go back to the drawing board. Think about who the user of your list would be and what functionality they would want to see. Wire frame your idea, get some feedback from a friend or partner, then use what you have learnt to make your very own list app. Use your CSS skills to bring the app to life and make it look professional.
+
+Basic Functions 
+
+Input to add the item to the shopping list
+  - Capatalise words
+Items are added to shopping list
+  - Button to Add to Basket
+ 
+Basket List 
+  - Button to send back to list 
+
+Button to Reset List 
+
+Design 
+- Clear text after added to list 
+
+Additional features 
+
+Button to Remove 1 item from List 
