@@ -8,6 +8,8 @@ const shoppingList = [
 
 // Change Add to Basket button so when clicked move item to items in Basket 
 
+
+
 function toggleBasket(event) {
   
   const button = event.target;
@@ -60,7 +62,7 @@ function clearItemsFromList(event) {
     }
       
     }
-
+//A clear and easy to read function- I like that you have comment about the child node- shows you know what you are doing.
 
 
 // function toggleBasket(event) {
@@ -97,7 +99,8 @@ function addAllShoppingtoUL(wordsToMakeLi) {
     // add li to the UL id shopping basket
     document.getElementById("shoppingList").appendChild(li);
   }
-}
+} 
+// I like the use of comments- you have planned really well!
 
 addAllShoppingtoUL(shoppingList);
 
@@ -116,6 +119,7 @@ function hideBasketItems(event) {
   arrayBasketItems.map((element) => element.classList.add("hide"));
   // show those items in list
 }
+// I like that you have functions to hide and show the items- really great work!
 
 document
   .getElementById("show-all-items")
@@ -141,5 +145,7 @@ function capitalise(word) {
 
   return capitaliseWord;
 }
+// It's great that you have included a function to capitalise user-input.
 
-
+// Only suggestion I can think of is for you to declare and move all your const variables to the top of the page, that way your functions can be more concise.
+// Overall, I am really impressed with your shopping list and I've learnt a lot just reviewing it. You've really done a great job!
